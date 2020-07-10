@@ -1,7 +1,12 @@
 {
-  "name": "harperdb-sdk-react",
-  "version": "1.0.1",
-  "description": "A starter for creating a new React hook",
+  "name": "use-harperdb",
+  "version": "0.1.0",
+  "description": "A react hook for HarperDB",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harperdb/harperdb-sdk-react"
+  },
   "author": {
     "name": "HarperDB",
     "email": "hello@harperdb.io",
@@ -10,34 +15,26 @@
   "keywords": [
     "react",
     "hooks",
-    "react-hooks"
+    "react-hooks",
+    "harperdb"
   ],
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir .",
     "bump": "npm version",
-    "example": "cd example && yarn install && yarn package",
-    "prepublishOnly": "yarn build",
+    "publish": "yarn build && npm publish",
     "watch": "nodemon --watch src --exec \"yarn build\""
   },
-  "license": "MIT",
+  "dependencies": {
+    "react": "^16.13.1",
+    "use-async-effect": "^2.2.2",
+    "use-interval": "^1.2.1"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "nodemon": "^2.0.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/colbyfayock/use-harperdb"
-  },
-  "bugs": {
-    "url": "https://github.com/colbyfayock/use-harperdb/issues"
-  },
-  "dependencies": {
-    "react": "^16.13.1",
-    "use-async-effect": "^2.2.2",
-    "use-interval": "^1.2.1"
   }
 }

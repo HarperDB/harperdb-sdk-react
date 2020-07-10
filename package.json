@@ -1,14 +1,9 @@
 {
-  "private": true,
-  "workspaces": [
-    "example",
-    "use-harperdb"
-  ],
+  "private": false,
+  "workspaces": ["example", "use-harperdb"],
   "scripts": {
-    "build": "yarn build:hook && yarn build:example",
-    "build:example": "yarn workspace example package",
+    "build": "yarn build:hook",
     "build:hook": "yarn workspace use-harperdb build",
-    "bump": "yarn workspace use-harperdb bump",
     "develop": "yarn watch",
     "watch": "concurrently -n Hook,Example \"yarn watch:hook\" \"yarn watch:example\"",
     "watch:example": "yarn workspace example start",
