@@ -1,5 +1,5 @@
 {
-  "private": false,
+  "private": true,
   "workspaces": ["example", "use-harperdb"],
   "scripts": {
     "build": "yarn build:hook",
