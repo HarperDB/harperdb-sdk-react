@@ -22,7 +22,7 @@
   "scripts": {
     "build": "babel src --out-dir .",
     "bump": "npm version",
-    "publish": "npm build && npm publish",
+    "publish": "yarn build && npm publish",
     "watch": "nodemon --watch src --exec \"yarn build\""
   },
   "dependencies": {
