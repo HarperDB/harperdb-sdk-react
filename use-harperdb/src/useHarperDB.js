@@ -11,7 +11,7 @@ export const HarperDBProvider = ({ url, user, password, children }) => (
 );
 
 export const useHarperDB = ({ query, interval }) => {
-  const {  url, user, password } = useContext(HarperDBContext);
+  const { url, user, password } = useContext(HarperDBContext);
   const [lastInterval, setLastInterval] = useState(false);
   const [result, setResult] = useState({ loading: false, error: false, data: false });
 
@@ -19,12 +19,12 @@ export const useHarperDB = ({ query, interval }) => {
   const refresh = () => setLastInterval(Date.now());
   let abortController;
 
-  const executeQuery = useCallback(async ({ queryBody, signal }) => {
+  const executeQuery = useCallback(async ({ stringifiedQuery, signal }) => {
     try {
       const request = await fetch(`${url}`, {
         method: 'POST',
         signal,
-        body: queryBody,
+        body: stringifiedQuery,
         headers: {
           'Content-Type': 'application/json',
           authorization: `Basic ${btoa(`${user}:${password}`)}`,
@@ -42,13 +42,13 @@ export const useHarperDB = ({ query, interval }) => {
     } catch (e) {
       return { error: e.message };
     }
-  }, [queryBody, url, user, password]);
+  }, [url, user, password]);
 
   useAsyncEffect(
     async () => {
       abortController = new AbortController()
       setResult({ ...result, loading: true });
-      const response = await executeQuery({ queryBody, signal: abortController.signal });
+      const response = await executeQuery({ stringifiedQuery: queryBody, signal: abortController.signal });
       setResult({ ...result, ...response, loading: false });
     },
     () => abortController && abortController.abort(),
