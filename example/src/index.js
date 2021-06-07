@@ -7,7 +7,7 @@ import { HarperDBProvider } from 'use-harperdb';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HarperDBProvider url="http://localhost:9925" user="HDB_ADMIN" password="password">
+    <HarperDBProvider url="https://localhost:9925" user="HDB_ADMIN" password="password">
       <App />
     </HarperDBProvider>
   </React.StrictMode>,

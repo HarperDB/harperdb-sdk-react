@@ -1,6 +1,6 @@
 {
   "name": "use-harperdb",
-  "version": "0.1.2",
+  "version": "0.1.6",
   "description": "A react hook for HarperDB",
   "license": "MIT",
   "repository": {
@@ -30,7 +30,7 @@
     "use-interval": "^1.2.1"
   },
   "peerDependencies": {
-    "react": "^16.13.1"
+    "react": "^17.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -38,6 +38,6 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "nodemon": "^2.0.2",
-    "react": "^16.13.1"
+    "react": "^17.0.2"
   }
 }

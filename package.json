@@ -1,6 +1,9 @@
 {
   "private": true,
-  "workspaces": ["example", "use-harperdb"],
+  "workspaces": [
+    "example",
+    "use-harperdb"
+  ],
   "scripts": {
     "build": "yarn build:hook",
     "build:hook": "yarn workspace use-harperdb build",
@@ -11,6 +14,6 @@
     "setup": "node ./scripts/setup.js"
   },
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^6.2.0"
   }
 }
