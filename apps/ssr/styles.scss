@@ -5,11 +5,10 @@
 }
 
 @import "tailwindcss/base";
+
+html {
+  @apply tw-font-sans tw-h-full tw-w-full;
+}
+
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
-@layer base {
-  html {
-    @apply tw-font-sans tw-h-full tw-w-full;
-  }
-}

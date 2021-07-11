@@ -1,9 +1,9 @@
 import * as harperive from "harperive";
 
 const DB_CONFIG = {
-  harperHost: "http://localhost:9925",
-  username: "HDB_ADMIN",
-  password: "password",
+  harperHost: "",
+  username: "",
+  password: "",
 };
 
 const Client = harperive.Client;

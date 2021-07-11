@@ -1,12 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 type RefresherProps = {
   onClick: () => void;
 };
 
 const Refresher: React.FunctionComponent<RefresherProps> = ({ onClick }) => {
-  const [state, setState] = useState();
-
   useEffect(function mountRefresher() {
     console.log("Refresher mounted!");
 

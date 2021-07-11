@@ -8,7 +8,7 @@ import type { UseHarperDB } from "../entity/use-harperpdb.entity";
 import type { UseHarperDbHookUtilOptionsMakerProps } from "./entity/harperdb-hook-util-options-maker.entity";
 
 export function useHarperDbHookUtilOptionsMaker(args: UseHarperDbHookUtilOptionsMakerProps) {
-  const options = useMemo(
+  return useMemo(
     () => ({
       url: args.context.options.url,
       token: harperDbHookUtilGenerateToken(args.context.options.user, args.context.options.password),
@@ -27,6 +27,4 @@ export function useHarperDbHookUtilOptionsMaker(args: UseHarperDbHookUtilOptions
       args.hookOptions.onError,
     ]
   );
-
-  return options;
 }

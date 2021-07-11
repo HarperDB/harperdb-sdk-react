@@ -25,29 +25,33 @@ const PreviewData: React.FunctionComponent = () => {
     };
   }, []);
 
-  return (
-    <div className="tw-grid tw-gap-5 tw-mx-5 lg:tw-mx-40 xl:tw-mx-64 2xl:tw-mx-96 tw-my-20">
-      {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <div className="tw-grid tw-gap-5 tw-border tw-border-red-500">
-          <Refresher onClick={refresh} />
-          <h5 className="tw-text-red tw-uppercase">Error on fetch</h5>
-          <pre>
-            <code>{JSON.stringify(error)}</code>
-          </pre>
-        </div>
-      ) : data ? (
-        <>
-          <Refresher onClick={refresh} />
-          <h2 className="tw-text-2xl tw-text-gray-800 tw-font-black">Preview content:</h2>
-          <JSONViewer content={JSON.stringify(data, null, 2)} />
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
-  );
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return (
+      <div className="tw-grid tw-gap-5 tw-border tw-border-red-500">
+        <Refresher onClick={refresh} />
+        <h5 className="tw-text-red tw-uppercase">Error on fetch</h5>
+        <pre>
+          <code>{JSON.stringify(error)}</code>
+        </pre>
+      </div>
+    );
+  }
+
+  if (data) {
+    return (
+      <>
+        <Refresher onClick={refresh} />
+        <h2 className="tw-text-2xl tw-text-gray-800 tw-font-black">Preview content:</h2>
+        <JSONViewer content={JSON.stringify(data, null, 2)} />
+      </>
+    );
+  }
+
+  return <p>Loading...</p>;
 };
 
 export default PreviewData;

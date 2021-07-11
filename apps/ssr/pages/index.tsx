@@ -17,7 +17,9 @@ const IndexPage: React.FunctionComponent = () => {
     <div>
       <Nav />
       <Hero />
-      <PreviewData />
+      <div className="tw-grid tw-gap-5 tw-mx-5 lg:tw-mx-40 xl:tw-mx-64 2xl:tw-mx-96 tw-my-20">
+        <PreviewData />
+      </div>
     </div>
   );
 };
