@@ -1,7 +1,16 @@
 {
   "name": "harperdb-sdk-react",
-  "version": "0.0.0",
+  "version": "0.1.6",
   "license": "MIT",
+  "author": {
+    "name": "HarperDB",
+    "email": "hello@harperdb.io",
+    "url": "https://harperdb.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harperdb/harperdb-sdk-react"
+  },
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
