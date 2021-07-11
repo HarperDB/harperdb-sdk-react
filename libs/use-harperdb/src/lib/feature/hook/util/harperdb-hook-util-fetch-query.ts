@@ -1,7 +1,14 @@
-import { FetchQuery } from "./fetch-query.entity";
+import {
+  HarperDbHookUtilFetchQueryProps,
+  HarperDbHookUtilFetchQueryError,
+} from "./entity/harperdb-hook-util-fetch-query.entity";
 
-export async function fetchQuery({ url, signal, body, token }: FetchQuery) {
+export async function harperDbHookUtilFetchQuery({ url, signal, body, token }: HarperDbHookUtilFetchQueryProps) {
   try {
+    if (!url) return { error: HarperDbHookUtilFetchQueryError.Url };
+    if (!body) return { error: HarperDbHookUtilFetchQueryError.Body };
+    if (!token) return { error: HarperDbHookUtilFetchQueryError.Token };
+
     const fetchOptions: RequestInit = {
       method: "POST",
       signal,
