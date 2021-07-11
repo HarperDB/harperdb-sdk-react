@@ -1,0 +1,7 @@
+# CREATE .env.local ON apps/ssr/.env.local WITH THIS CONTENT
+
+TAILWIND='WATCH'
+
+HARPERDB_USER='HDB_ADMIN'
+HARPERDB_PASSWORD='password'
+HARPERDB_URL='http://localhost:9925'

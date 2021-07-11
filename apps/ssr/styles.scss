@@ -1,0 +1,14 @@
+:root {
+  --accent1: #362c68;
+  --accent2: #4b408d;
+  --accent3: #753a87;
+}
+
+@import "tailwindcss/base";
+
+html {
+  @apply tw-font-sans tw-h-full tw-w-full;
+}
+
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";

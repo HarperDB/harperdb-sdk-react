@@ -1,0 +1,21 @@
+{
+  "name": "use-harperdb",
+  "version": "0.1.6",
+  "license": "MIT",
+  "description": "A react hook for HarperDB",
+  "author": {
+    "name": "HarperDB",
+    "email": "hello@harperdb.io",
+    "url": "https://harperdb.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harperdb/harperdb-sdk-react"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "react-hooks",
+    "harperdb"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "npmScope": "harperdb-sdk-react",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "spa": {
+      "tags": []
+    },
+    "spa-e2e": {
+      "tags": [],
+      "implicitDependencies": ["spa"]
+    },
+    "ssr": {
+      "tags": []
+    },
+    "ssr-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ssr"]
+    },
+    "use-harperdb": {
+      "tags": []
+    }
+  }
+}
