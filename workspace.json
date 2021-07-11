@@ -190,7 +190,7 @@
             "tsConfig": "libs/use-harperdb/tsconfig.lib.json",
             "project": "libs/use-harperdb/package.json",
             "entryFile": "libs/use-harperdb/src/index.ts",
-            "external": ["react/jsx-runtime"],
+            "external": ["react/jsx-runtime", "react/"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
