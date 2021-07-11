@@ -37,7 +37,6 @@
   },
   "private": true,
   "dependencies": {
-    "@nrwl/next": "12.5.7",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",
     "next": "10.2.0",
@@ -56,7 +55,7 @@
     "@nrwl/eslint-plugin-nx": "12.5.7",
     "@nrwl/jest": "12.5.7",
     "@nrwl/linter": "12.5.7",
-    "@nrwl/next": "^12.5.7",
+    "@nrwl/next": "12.5.7",
     "@nrwl/react": "12.5.7",
     "@nrwl/tao": "12.5.7",
     "@nrwl/web": "12.5.7",
