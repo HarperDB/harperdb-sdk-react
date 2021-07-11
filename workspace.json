@@ -176,6 +176,46 @@
           }
         }
       }
+    },
+    "use-harperdb": {
+      "root": "libs/use-harperdb",
+      "sourceRoot": "libs/use-harperdb/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/use-harperdb",
+            "tsConfig": "libs/use-harperdb/tsconfig.lib.json",
+            "project": "libs/use-harperdb/package.json",
+            "entryFile": "libs/use-harperdb/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/use-harperdb/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/use-harperdb/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/use-harperdb"],
+          "options": {
+            "jestConfig": "libs/use-harperdb/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

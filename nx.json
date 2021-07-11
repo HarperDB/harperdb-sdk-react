@@ -40,6 +40,9 @@
     "ssr-e2e": {
       "tags": [],
       "implicitDependencies": ["ssr"]
+    },
+    "use-harperdb": {
+      "tags": []
     }
   }
 }
