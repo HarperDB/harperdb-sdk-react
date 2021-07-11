@@ -99,6 +99,83 @@
           }
         }
       }
+    },
+    "ssr": {
+      "root": "apps/ssr",
+      "sourceRoot": "apps/ssr",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "root": "apps/ssr",
+            "outputPath": "dist/apps/ssr"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "ssr:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "ssr:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "ssr:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/ssr"],
+          "options": {
+            "jestConfig": "apps/ssr/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ssr/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      }
+    },
+    "ssr-e2e": {
+      "root": "apps/ssr-e2e",
+      "sourceRoot": "apps/ssr-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ssr-e2e/cypress.json",
+            "tsConfig": "apps/ssr-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ssr:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ssr:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ssr-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -115,6 +192,12 @@
         "style": "css"
       },
       "library": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
         "style": "css",
         "linter": "eslint"
       }

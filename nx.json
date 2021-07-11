@@ -33,6 +33,13 @@
     "spa-e2e": {
       "tags": [],
       "implicitDependencies": ["spa"]
+    },
+    "ssr": {
+      "tags": []
+    },
+    "ssr-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ssr"]
     }
   }
 }
