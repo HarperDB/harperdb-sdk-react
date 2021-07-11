@@ -1,7 +1,3 @@
 module.exports = {
-  projects: [
-    '<rootDir>/apps/spa',
-    '<rootDir>/apps/ssr',
-    '<rootDir>/libs/use-harperdb',
-  ],
+  projects: ["<rootDir>/apps/spa", "<rootDir>/apps/ssr", "<rootDir>/libs/use-harperdb"],
 };
