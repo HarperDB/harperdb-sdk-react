@@ -3,5 +3,5 @@ import type { HarperDBHookProviderFeatureProviderProps } from "../../feature/pro
 
 export interface UseHarperDbHookUtilOptionsMakerProps {
   context: HarperDBHookProviderFeatureProviderProps;
-  query: UseHarperDB["query"];
+  hookOptions: UseHarperDB;
 }

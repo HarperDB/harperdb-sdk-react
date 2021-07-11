@@ -13,7 +13,11 @@ const HeroTitle: React.FunctionComponent<HeroTitleProps> = ({ text }) => {
     };
   }, []);
 
-  return <h1 className="tw-font-sans tw-text-4xl tw-text-white tw-font-extralight">{text}</h1>;
+  return (
+    <h1 className="tw-font-sans tw-text-4xl tw-text-white tw-font-extralight tw-leading-relaxed tw-tracking-widest">
+      {text}
+    </h1>
+  );
 };
 
 export default HeroTitle;

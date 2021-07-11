@@ -17,7 +17,7 @@ const JSONViewer: React.FunctionComponent<JSONViewerProps> = ({ content }) => {
   }, []);
 
   return (
-    <div className="tw-border tw-flex">
+    <div className="tw-border tw-flex tw-mb-20">
       <SyntaxHighlighter language="json" style={theme}>
         {content}
       </SyntaxHighlighter>

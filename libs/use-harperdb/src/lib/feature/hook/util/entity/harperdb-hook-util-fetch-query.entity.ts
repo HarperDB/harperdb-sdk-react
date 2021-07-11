@@ -3,6 +3,8 @@ export interface HarperDbHookUtilFetchQueryProps {
   signal: AbortSignal;
   body: string;
   token: string;
+  onLoad?: () => void;
+  onError?: () => void;
 }
 
 export enum HarperDbHookUtilFetchQueryError {

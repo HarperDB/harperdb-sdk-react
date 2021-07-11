@@ -1,5 +1,9 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
+import { Toaster } from "react-hot-toast";
+import { HarperDBProvider } from "use-harperdb";
+
+import { config } from "../config/harperdb";
 
 import "../styles.scss";
 
@@ -9,9 +13,10 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>HarperDB | SSR</title>
       </Head>
-      <main>
+      <HarperDBProvider {...config}>
         <Component {...pageProps} />
-      </main>
+      </HarperDBProvider>
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 }

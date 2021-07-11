@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { interval } from "rxjs";
 
 import { harperDbHookUtilGenerateToken } from "./harperdb-hook-util-fetch-token";
 import { harperDbHookUtilStringifyQuery } from "./harperdb-hook-util-stringify-query";
@@ -6,14 +7,25 @@ import { harperDbHookUtilStringifyQuery } from "./harperdb-hook-util-stringify-q
 import type { UseHarperDB } from "../entity/use-harperpdb.entity";
 import type { UseHarperDbHookUtilOptionsMakerProps } from "./entity/harperdb-hook-util-options-maker.entity";
 
-export function useHarperDbHookUtilOptionsMaker({ context, query }: UseHarperDbHookUtilOptionsMakerProps) {
+export function useHarperDbHookUtilOptionsMaker(args: UseHarperDbHookUtilOptionsMakerProps) {
   const options = useMemo(
     () => ({
-      url: context.options.url,
-      token: harperDbHookUtilGenerateToken(context.options.user, context.options.password),
-      body: harperDbHookUtilStringifyQuery<UseHarperDB["query"]>(query),
+      url: args.context.options.url,
+      token: harperDbHookUtilGenerateToken(args.context.options.user, args.context.options.password),
+      body: harperDbHookUtilStringifyQuery<UseHarperDB["query"]>(args.hookOptions.query),
+      interval: args.hookOptions.interval ? interval(args.hookOptions.interval) : undefined,
+      onLoad: args.hookOptions.onLoad,
+      onError: args.hookOptions.onError,
     }),
-    [context.options.user, context.options.password, context.options.url, query]
+    [
+      args.context.options.user,
+      args.context.options.password,
+      args.context.options.url,
+      args.hookOptions.query,
+      args.hookOptions.interval,
+      args.hookOptions.onLoad,
+      args.hookOptions.onError,
+    ]
   );
 
   return options;

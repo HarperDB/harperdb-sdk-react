@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import HeroContainer from "./HeroContainer";
 import HeroContent from "./HeroContent";
 import HeroTitle from "./HeroTitle";
-import ButtonTrigger from "./ButtonTrigger";
 
 const Hero: React.FunctionComponent = () => {
   useEffect(function mountHero() {
@@ -18,7 +17,6 @@ const Hero: React.FunctionComponent = () => {
     <HeroContainer>
       <HeroContent>
         <HeroTitle text="HarperDB SSR Test" />
-        <ButtonTrigger />
       </HeroContent>
     </HeroContainer>
   );

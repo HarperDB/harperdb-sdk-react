@@ -2,18 +2,24 @@ import { harperDbHookUtilFetchQuery } from "./harperdb-hook-util-fetch-query";
 
 import type { HarperDbHookUtilExecuteFetchProps } from "./entity/harperdb-hook-util-execute-fetch.entity";
 
-export async function harperDbHookUtilExecuteFetch<T>({
-  setRequestData,
-  setRequestError,
-  setRequestLoading,
-  ...queryProps
-}: HarperDbHookUtilExecuteFetchProps<T>) {
-  setRequestLoading(true);
+export async function harperDbHookUtilExecuteFetch<T>(args: HarperDbHookUtilExecuteFetchProps<T>) {
+  if (!args.optionInterval) {
+    args.setRequestLoading(true);
+  }
 
-  const response = await harperDbHookUtilFetchQuery(queryProps);
+  const response = await harperDbHookUtilFetchQuery({
+    signal: args.optionSignal,
+    body: args.optionBody,
+    token: args.optionToken,
+    url: args.optionUrl,
+    onError: args.onError,
+    onLoad: args.onLoad,
+  });
 
-  if (response.data) setRequestData(response.data);
-  if (response.error) setRequestError(response.error);
+  if (response.data) args.setRequestData(response.data);
+  if (response.error) args.setRequestError(response.error);
 
-  setRequestLoading(false);
+  if (!args.optionInterval) {
+    args.setRequestLoading(false);
+  }
 }

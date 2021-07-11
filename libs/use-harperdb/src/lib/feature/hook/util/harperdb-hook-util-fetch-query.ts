@@ -3,7 +3,14 @@ import {
   HarperDbHookUtilFetchQueryError,
 } from "./entity/harperdb-hook-util-fetch-query.entity";
 
-export async function harperDbHookUtilFetchQuery({ url, signal, body, token }: HarperDbHookUtilFetchQueryProps) {
+export async function harperDbHookUtilFetchQuery({
+  url,
+  signal,
+  body,
+  token,
+  onError,
+  onLoad,
+}: HarperDbHookUtilFetchQueryProps) {
   try {
     if (!url) return { error: HarperDbHookUtilFetchQueryError.Url };
     if (!body) return { error: HarperDbHookUtilFetchQueryError.Body };
@@ -25,11 +32,21 @@ export async function harperDbHookUtilFetchQuery({ url, signal, body, token }: H
     const data = responseJson.body || responseJson;
 
     if (response.ok) {
+      if (onLoad) {
+        onLoad();
+      }
       return { data };
+    }
+
+    if (onError) {
+      onError();
     }
 
     return { error: data.message };
   } catch ({ message }) {
+    if (onError) {
+      onError();
+    }
     return { error: message };
   }
 }

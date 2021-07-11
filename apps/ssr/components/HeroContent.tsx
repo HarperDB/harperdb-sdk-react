@@ -10,7 +10,7 @@ const HeroContent: React.FunctionComponent = ({ children }) => {
   }, []);
 
   return (
-    <div className="tw-absolute tw-inset-0 tw-mt-64">
+    <div className="tw-absolute tw-inset-0 tw-mt-80">
       <div className="tw-flex tw-justify-center tw-items-center">
         <div className="tw-grid tw-gap-10">{children}</div>
       </div>
