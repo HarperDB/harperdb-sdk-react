@@ -1,23 +1,17 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { ReactComponent as NxLogo } from "../public/nx-logo-white.svg";
-import "./styles.css";
+
+import "../styles.scss";
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to ssr!</title>
+        <title>HarperDB | SSR</title>
       </Head>
-      <div className="app">
-        <header className="flex">
-          <NxLogo width="75" height="50" />
-          <h1>Welcome to ssr!</h1>
-        </header>
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </div>
+      <main>
+        <Component {...pageProps} />
+      </main>
     </>
   );
 }

@@ -1,0 +1,3 @@
+# CREATE .env.local ON apps/ssr/.env.local WITH THIS CONTENT
+
+TAILWIND='WATCH'
